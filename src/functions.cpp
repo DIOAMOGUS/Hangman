@@ -3,7 +3,7 @@
 #include <vector>
 #include "functions.hpp"
 
-void setup(const std::string_view originalRandomWord, std::string& hiddenWord)
+void setup(std::string_view originalRandomWord, std::string& hiddenWord)
 {
     // Introduction
     std::cout << "Welcome to C++man! (a variant of hangman)\n";
@@ -19,7 +19,7 @@ void setup(const std::string_view originalRandomWord, std::string& hiddenWord)
 #endif
 }
 
-void turn(const std::string_view originalRandomWord, std::string& hiddenWord, std::vector<char>& listOfGuesses, int& lives) 
+void turn(std::string_view originalRandomWord, std::string& hiddenWord, std::vector<char>& listOfGuesses, short& lives)
 {
     char guess{}; // Variable for the user's guess
    
@@ -63,7 +63,7 @@ void turn(const std::string_view originalRandomWord, std::string& hiddenWord, st
     --lives;
 }
 
-void printLives(const int lives)
+inline void printLives(const int lives)
 {
     for (int i = 1; i <= lives; ++i)
         std::cout << '+';
@@ -71,7 +71,7 @@ void printLives(const int lives)
     std::cout << '\n';
 }
 
-void printListOfGuesses(const std::vector<char>& listOfGuesses)
+inline void printListOfGuesses(const std::vector<char>& listOfGuesses)
 {
     for (size_t i = 0; i < listOfGuesses.size(); ++i)
         std::cout << listOfGuesses.at(i) << ' ';
